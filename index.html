@@ -184,7 +184,6 @@
       align-items: stretch;
     }
 
-    /* Izquierda */
     .hero-left {
       padding-right: 10px;
     }
@@ -278,8 +277,6 @@
       border-color: transparent;
     }
 
-    /* Derecha: card contacto */
-
     .hero-right {
       background: var(--bg-alt);
       border-radius: var(--radius-xl);
@@ -334,10 +331,6 @@
       background-size: cover;
       background-position: center;
     }
-    /* Para usar tu foto:
-       - Sube assets/foto_jaime.jpg
-       - Cambia la línea de background-image a url("assets/foto_jaime.jpg");
-    */
 
     .hero-right-role {
       font-size: 14px;
@@ -367,8 +360,6 @@
     }
     .hero-right a:hover { text-decoration: underline; }
 
-    /* GRID SECTIONS */
-
     section:not(#home) {
       margin-top: 12px;
     }
@@ -397,6 +388,7 @@
       box-shadow: var(--shadow-soft);
       border-color: var(--primary-soft);
     }
+
     ul {
       padding-left: 18px;
       margin: 4px 0 0;
@@ -423,13 +415,9 @@
       color: var(--primary);
     }
 
-    /* EXPERIENCE */
-
     .experience-item { margin-bottom: 10px; font-size: 12px; }
     .experience-title { font-weight: 600; }
     .experience-meta { font-size: 10px; color: var(--muted); }
-
-    /* PROJECTS CAROUSEL DINÁMICO */
 
     .projects-wrapper { margin-top: 16px; }
 
@@ -573,8 +561,6 @@
       width: 16px;
     }
 
-    /* CONTACT */
-
     .contact-links a {
       text-decoration: none;
       color: var(--primary);
@@ -617,6 +603,27 @@
         padding: 14px 18px 18px;
       }
     }
+
+    /* EXTRA SPACING: alargar secciones un poco más */
+    section {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    #home {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    /* TECH STACK HOVER: sombrear tarjetas solo en esa sección */
+    #techstack .card {
+      transition: all var(--fast);
+    }
+    #techstack .card:hover {
+      background: rgba(37, 99, 235, 0.04);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.16);
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
   </style>
 </head>
 <body>
@@ -646,17 +653,14 @@
     <!-- HERO -->
     <section id="home">
       <div class="hero-layout">
-        <!-- Izquierda: texto -->
         <div class="hero-left">
           <div class="hero-title-line1">Data Scientist</div>
           <div class="hero-title-line2">
             <span class="gray">Who</span> <span class="gold">Speaks</span> <span class="gray">Business</span>
           </div>
-
           <div class="hero-subtitle">
             9+ Years Business & Analytics Experience + Advanced ML & BI Expertise
           </div>
-
           <p class="hero-text">
             Most data teams ship technically solid dashboards and models. I design solutions that actually
             get used: data models, ETLs, dashboards and ML aligned with how decision-makers think and measure success.
@@ -665,13 +669,11 @@
             My background working with executives, finance, sales and operations means I don't just solve
             technical problems — I target the right business problems with the right analytical approach.
           </p>
-
           <div class="hero-diff">
             <strong>My differentiator:</strong>
             I translate business pain into technical solutions because I understand both the constraints
             of operations and the language of data architecture and modeling.
           </div>
-
           <div class="btn-row">
             <a class="btn filled" href="#projects">View Projects</a>
             <a class="btn" href="assets/CV_JaimeHernandez.pdf" target="_blank">Download CV</a>
@@ -679,7 +681,6 @@
           </div>
         </div>
 
-        <!-- Derecha: card con foto -->
         <div class="hero-right">
           <div class="photo-circle-wrap">
             <div class="photo-circle"></div>
@@ -755,7 +756,6 @@
             <span class="tag">Pandas</span>
             <span class="tag">NumPy</span>
             <span class="tag">Scikit-learn</span>
-            <!-- LENGUAJES añadidos -->
             <span class="tag">SQL</span>
             <span class="tag">Snowflake</span>
             <span class="tag">DAX</span>
@@ -768,7 +768,6 @@
             <span class="tag">Power BI</span>
             <span class="tag">Tableau</span>
             <span class="tag">Cognos</span>
-            <!-- HERRAMIENTAS BI añadidas -->
             <span class="tag">Cognos Report Studio</span>
             <span class="tag">SAP Lumira</span>
           </div>
@@ -789,7 +788,6 @@
             <span class="tag">ETL & Orchestration</span>
           </div>
         </div>
-        <!-- LIBRERIAS añadidas como bloque separado -->
         <div class="card">
           <h3>Libraries (ML & Visualization)</h3>
           <div class="tag-row">
@@ -819,16 +817,14 @@
       </ul>
     </section>
 
-    <!-- PROJECTS - CAROUSEL -->
+    <!-- PROJECTS -->
     <section id="projects">
       <h2>Projects</h2>
       <p>Each slide shows an image preview + key context. Active project is highlighted and centered.</p>
-
       <div class="projects-wrapper">
         <div class="carousel-shell">
           <div class="carousel-viewport">
             <div class="carousel-track" id="projectsTrack">
-              <!-- Slide 1 -->
               <div class="project-slide active" data-index="0">
                 <div class="project-text">
                   <div class="project-title">Customer Churn Prediction - Telco</div>
@@ -844,12 +840,10 @@
                   </div>
                 </div>
                 <div class="project-media">
-                  <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800"
-                       alt="Churn dashboard preview">
+                  <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Churn dashboard preview">
                 </div>
               </div>
 
-              <!-- Slide 2 -->
               <div class="project-slide" data-index="1">
                 <div class="project-text">
                   <div class="project-title">Executive Sales & Margin Dashboard</div>
@@ -865,12 +859,10 @@
                   </div>
                 </div>
                 <div class="project-media">
-                  <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800"
-                       alt="Sales dashboard preview">
+                  <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sales dashboard preview">
                 </div>
               </div>
 
-              <!-- Slide 3 -->
               <div class="project-slide" data-index="2">
                 <div class="project-text">
                   <div class="project-title">Demand Forecast & Inventory Planning</div>
@@ -886,8 +878,7 @@
                   </div>
                 </div>
                 <div class="project-media">
-                  <img src="https://images.pexels.com/photos/6801649/pexels-photo-6801649.jpeg?auto=compress&cs=tinysrgb&w=800"
-                       alt="Forecast visualization preview">
+                  <img src="https://images.pexels.com/photos/6801649/pexels-photo-6801649.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Forecast visualization preview">
                 </div>
               </div>
             </div>
@@ -938,14 +929,12 @@
   </main>
 
   <footer>
-    © <span id="year"></span> Jaimee Hernández Gutiérrez · Portfolio hosted on GitHub Pages
+    © <span id="year"></span> Jaime Hernández Gutiérrez · Portfolio hosted on GitHub Pages
   </footer>
 
   <script>
-    // Año dinámico
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Theme toggle con localStorage
     const body = document.body;
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
@@ -975,7 +964,6 @@
       }
     });
 
-    // Carousel dinámico centrado con slide activo destacado
     const track = document.getElementById("projectsTrack");
     const slides = Array.from(track.querySelectorAll(".project-slide"));
     const prevBtn = document.getElementById("prevBtn");
@@ -984,43 +972,6 @@
     let currentIndex = 0;
     let autoTimer = null;
 
-    function centerActiveSlide(index) {
-      const viewport = track.parentElement;
-      const active = slides[index];
-      const viewportRect = viewport.getBoundingClientRect();
-      const activeRect = active.getBoundingClientRect();
-      const currentTransform = getComputedStyle(track).transform;
-      let baseX = 0;
-      if (currentTransform !== "none") {
-        const values = currentTransform.split("(")[1].split(")")[0].split(",");
-        baseX = parseFloat(values[4]) || 0;
-      }
-      const offset = (activeRect.left + activeRect.right) / 2
-                   - (viewportRect.left + viewportRect.right) / 2;
-      const newX = baseX - offset;
-      track.style.transform = `translateX(${newX}px)`;
-    }
-
-    function goTo(index, skipCenter) {
-      if (index < 0) index = slides.length - 1;
-      if (index >= slides.length) index = 0;
-      currentIndex = index;
-
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
-
-      if (!skipCenter) {
-        // Usamos porcentaje como fallback para evitar glitches raros en algunos navegadores.
-        const translatePercent = -index * 100;
-        track.style.transform = `translateX(${translatePercent}%)`;
-      }
-    }
-
-    // Versión simple y estable (porcentaje)
     function goToStable(index) {
       if (index < 0) index = slides.length - 1;
       if (index >= slides.length) index = 0;
@@ -1035,8 +986,9 @@
       });
     }
 
-    // Usaremos la versión estable para GitHub Pages:
-    function go(index) { goToStable(index); }
+    function go(index) {
+      goToStable(index);
+    }
 
     prevBtn.addEventListener("click", () => {
       go(currentIndex - 1);
