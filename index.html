@@ -6,95 +6,423 @@
   <title>Jaime Hernández - Data & BI Portfolio</title>
   <style>
     :root {
-      --bg: #080808;
-      --fg: #f5f5f5;
-      --accent: #00e6b8;
-      --muted: #9ca3af;
-      --card: #111827;
+      --bg: #f5f7fb;
+      --bg-alt: #ffffff;
+      --primary: #0f5fb3;
+      --primary-soft: #e1efff;
+      --secondary: #1f2933;
+      --muted: #6b7280;
+      --border: #d1d5db;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 10px 30px rgba(15, 31, 53, 0.10);
       --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
     * { box-sizing: border-box; scroll-behavior: smooth; }
-    body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--fg); }
-    header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(8,8,8,0.9);
-      border-bottom: 1px solid rgba(75,85,99,0.5);
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--secondary);
     }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(245,247,251,0.96);
+      border-bottom: 1px solid rgba(209,213,219,0.9);
+    }
+
     nav {
-      max-width: 1080px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
       padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
       font-size: 14px;
     }
-    nav .brand { font-weight: 600; letter-spacing: 0.04em; color: var(--accent); }
-    nav a {
-      color: var(--fg); text-decoration: none; margin-left: 14px;
-      padding-bottom: 2px; border-bottom: 1px solid transparent;
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: 14px;
+      color: var(--primary);
+      text-transform: uppercase;
     }
-    nav a:hover { border-color: var(--accent); color: var(--accent); }
-    main { max-width: 1080px; margin: 0 auto; padding: 32px 18px 48px; }
-    section { padding: 40px 0; border-bottom: 1px solid rgba(31,41,55,0.8); }
-    h1,h2,h3 { margin: 0 0 12px; font-weight: 600; }
-    h2 { font-size: 22px; }
-    p { margin: 0 0 10px; color: var(--muted); }
-    .hero-title { font-size: 30px; margin-bottom: 8px; }
-    .hero-sub { font-size: 15px; max-width: 620px; }
-    .pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; padding: 4px 10px;
-      border-radius: 999px; background: rgba(17,24,39,0.95); color: var(--accent);
-      border: 1px solid rgba(75,85,99,0.9); margin-bottom: 12px;
-    }
-    .btn-row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 8px 14px; border-radius: 999px;
-      font-size: 12px; text-decoration: none;
-      border: 1px solid var(--accent); color: var(--accent); background: transparent;
-    }
-    .btn.filled { background: var(--accent); color: #020817; border-color: var(--accent); }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,0.4); }
-    .grid {
-      display: grid; gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      margin-top: 10px;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 10px 11px;
-      border: 1px solid rgba(75,85,99,0.6);
-      font-size: 12px;
-    }
-    .card h3 { font-size: 13px; margin-bottom: 6px; }
-    .tag-row { display:flex; flex-wrap:wrap; gap:4px; margin-top:4px; }
-    .tag {
-      font-size:9px; padding:2px 6px; border-radius:999px;
-      background: rgba(15,23,42,0.95); color: var(--accent);
-      border: 1px solid rgba(75,85,99,0.7);
-    }
-    ul { padding-left: 16px; margin: 4px 0 0; font-size: 12px; color: var(--muted); }
-    li { margin-bottom: 3px; }
-    .experience-item { margin-bottom: 10px; font-size: 12px; }
-    .experience-title { font-weight: 600; color: var(--fg); }
-    .experience-meta { font-size: 10px; color: var(--muted); }
-    .contact-links a {
-      color: var(--accent);
+
+    .nav-links a {
       text-decoration: none;
-      font-size: 12px;
-      margin-right: 12px;
+      color: var(--secondary);
+      margin-left: 14px;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      font-weight: 500;
+      font-size: 13px;
     }
-    .contact-links a:hover { text-decoration: underline; }
-    footer {
-      max-width: 1080px; margin: 0 auto;
-      padding: 18px; font-size: 10px; color: var(--muted);
+
+    .nav-links a:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 26px 18px 40px;
+    }
+
+    section {
+      padding: 40px 0 24px;
+      border-bottom: 1px solid rgba(209,213,219,0.65);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 10px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.2fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 10px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(148,163,253,0.4);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      max-width: 540px;
+    }
+
+    .hero-highlight {
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .btn-row {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-decoration: none;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+      transition: all 0.18s ease;
+    }
+
+    .btn.filled {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* HERO PHOTO CARD */
+    .profile-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-photo-wrap {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(145deg, var(--primary), #2f7dd6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-image: url("https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400"); 
+      /* Reemplaza la URL de arriba por tu propia foto cuando la tengas */
+    }
+
+    .profile-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .profile-role {
+      font-size: 11px;
+      color: var(--muted);
       text-align: center;
     }
-    @media (max-width: 640px) {
-      nav { flex-direction: column; align-items: flex-start; gap: 6px; }
-      nav a { margin-left: 0; margin-right: 10px; }
-      .hero-title { font-size: 24px; }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .profile-tag {
+      font-size: 9px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    /* GRID CARDS */
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      margin-top: 10px;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 3px 10px rgba(15,23,42,0.04);
+      font-size: 12px;
+    }
+
+    .card h3 {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--secondary);
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--primary);
+    }
+
+    /* EXPERIENCE */
+    .experience-item {
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    .experience-title {
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .experience-meta {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* PROJECTS CAROUSEL */
+    .projects-wrapper {
+      margin-top: 8px;
+    }
+
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 16px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.35s ease;
+    }
+
+    .project-slide {
+      min-width: 100%;
+      padding-right: 6px;
+      box-sizing: border-box;
+    }
+
+    .project-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--secondary);
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-meta {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--primary);
+      background: #ffffff;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      box-shadow: 0 4px 10px rgba(15,23,42,0.15);
+      transition: all 0.18s ease;
+    }
+
+    .carousel-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+
+    .carousel-dots {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #d1d5db;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .dot.active {
+      background: var(--primary);
+      width: 16px;
+      border-radius: 999px;
+    }
+
+    /* CONTACT */
+    .contact-links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 13px;
+      margin-right: 14px;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px;
+      text-align: center;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .nav-links a {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
@@ -102,7 +430,7 @@
   <header>
     <nav>
       <div class="brand">JAIME HERNÁNDEZ</div>
-      <div>
+      <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#expertise">Expertise</a>
         <a href="#techstack">Tech Stack</a>
@@ -117,45 +445,65 @@
   <main>
     <!-- HOME -->
     <section id="home">
-      <div class="pill">Data · BI · Analytics · Machine Learning</div>
-      <h1 class="hero-title">Data Scientist & BI Specialist</h1>
-      <p class="hero-sub">
-        Transformo datos en decisiones accionables: dashboards claros, modelos predictivos aplicados al negocio
-        y soluciones de analítica que hablan el lenguaje de dirección, operación y finanzas.
-      </p>
-      <div class="btn-row">
-        <a class="btn filled" href="#projects">Ver proyectos</a>
-        <a class="btn" href="assets/CV_JaimeHernandez.pdf" target="_blank">Descargar CV</a>
-        <a class="btn" href="#contact">Contactarme</a>
+      <div class="hero">
+        <div>
+          <div class="pill">Business Intelligence · Data Science · Analytics</div>
+          <h1 class="hero-title">Especialista en Datos & BI orientado a negocio</h1>
+          <p class="hero-sub">
+            Diseño soluciones de analítica y visualización que conectan
+            <span class="hero-highlight">dirección, finanzas y operación</span>, desde el modelo de datos hasta el dashboard final,
+            con métricas claras y accionables.
+          </p>
+          <div class="btn-row">
+            <a class="btn filled" href="#projects">Ver proyectos</a>
+            <a class="btn" href="assets/CV_JaimeHernandez.pdf" target="_blank">Descargar CV</a>
+            <a class="btn" href="#contact">Contactarme</a>
+          </div>
+        </div>
+
+        <!-- CARD FOTO / PERFIL -->
+        <div class="profile-card">
+          <div class="profile-photo-wrap">
+            <div class="profile-photo"></div>
+          </div>
+          <div class="profile-name">Jaime Hernández</div>
+          <div class="profile-role">Business Intelligence & Data Science</div>
+          <div class="profile-tags">
+            <span class="profile-tag">Dashboards ejecutivos</span>
+            <span class="profile-tag">ETL & SQL avanzado</span>
+            <span class="profile-tag">Modelos predictivos</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- EXPERTISE -->
     <section id="expertise">
       <h2>Expertise</h2>
+      <p>Enfoque en soluciones de datos que resuelven problemas reales de negocio.</p>
       <div class="grid">
         <div class="card">
           <h3>Business Intelligence</h3>
           <ul>
-            <li>Modelado de datos para reporting ejecutivo y operativo.</li>
-            <li>Dashboards en Power BI / Tableau centrados en negocio.</li>
-            <li>Gobierno del dato, catálogos y KPIs consistentes.</li>
+            <li>Modelado de datos para reportes ejecutivos, operativos y financieros.</li>
+            <li>Dashboards en Power BI / Tableau con enfoque UX.</li>
+            <li>KPIs normalizados, documentación y gobierno del dato.</li>
           </ul>
         </div>
         <div class="card">
           <h3>Data Science Aplicado</h3>
           <ul>
-            <li>Churn, scoring, segmentación y forecast de demanda.</li>
-            <li>Evaluación de modelos con métricas orientadas a negocio.</li>
-            <li>Experimentación y pruebas A/B.</li>
+            <li>Modelos de churn, scoring, segmentación y forecasting.</li>
+            <li>Selección de modelos con métricas alineadas al impacto económico.</li>
+            <li>Diseño de experimentos y pruebas A/B simples.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Arquitectura & ETL</h3>
+          <h3>Arquitectura & Integración</h3>
           <ul>
-            <li>SQL Server, Snowflake, pipelines robustos y documentados.</li>
-            <li>Integración de múltiples fuentes (APIs, Webhooks, archivos, ERPs).</li>
-            <li>Optimización de consultas e índices.</li>
+            <li>ETL en SQL Server, Snowflake y herramientas de automatización.</li>
+            <li>Integración de fuentes: ERPs, APIs, Webhooks, archivos planos.</li>
+            <li>Optimización de consultas, índices y tiempos de respuesta.</li>
           </ul>
         </div>
       </div>
@@ -191,11 +539,11 @@
           </div>
         </div>
         <div class="card">
-          <h3>Dev & Otros</h3>
+          <h3>Dev & Automation</h3>
           <div class="tag-row">
             <span class="tag">Git/GitHub</span>
             <span class="tag">APIs</span>
-            <span class="tag">Linux basics</span>
+            <span class="tag">Orquestación ETL</span>
           </div>
         </div>
       </div>
@@ -205,42 +553,76 @@
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li>Traducción de requerimientos de negocio a soluciones de datos.</li>
-        <li>Storytelling con datos para perfiles técnicos y no técnicos.</li>
-        <li>Calidad de datos: validaciones, pruebas y monitoreo continuo.</li>
-        <li>Documentación clara, reproducible y orientada a equipos.</li>
-        <li>Trabajo colaborativo con áreas comerciales, financieras y TI.</li>
+        <li>Traducción de necesidades del negocio a modelos de datos y dashboards.</li>
+        <li>Comunicación clara con stakeholders técnicos y no técnicos.</li>
+        <li>Diseño de KPIs, validación de datos y control de calidad.</li>
+        <li>Documentación, orden y estandarización de fuentes de información.</li>
+        <li>Trabajo colaborativo con dirección, finanzas, ventas y TI.</li>
       </ul>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- PROJECTS (CAROUSEL) -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Customer Churn Prediction</h3>
-          <p>Modelo para identificar clientes con alto riesgo de baja y priorizar retención.</p>
-          <div class="tag-row">
-            <span class="tag">Python</span><span class="tag">Scikit-learn</span>
-            <span class="tag">Classification</span>
+      <p>Algunos ejemplos representativos (puedes personalizar cada slide con tus repos reales).</p>
+
+      <div class="projects-wrapper">
+        <div class="carousel-container">
+          <div class="carousel-track" id="projectsTrack">
+            <!-- Slide 1 -->
+            <div class="project-slide">
+              <div class="project-title">Customer Churn Prediction - Telco</div>
+              <div class="project-desc">
+                Modelo de clasificación para identificar clientes con alta probabilidad de baja,
+                priorizando campañas de retención con base en impacto económico.
+              </div>
+              <div class="project-meta">
+                Python · Scikit-learn · Feature engineering · Matriz de confusión · AUC · F1
+              </div>
+              <a class="btn" href="https://github.com/tuusuario/proyecto-churn" target="_blank">
+                Ver repositorio
+              </a>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="project-slide">
+              <div class="project-title">Dashboard de Ventas & Rentabilidad</div>
+              <div class="project-desc">
+                Tablero ejecutivo con margen, mix de productos, canales y comportamiento por región,
+                conectado a fuente SQL optimizada.
+              </div>
+              <div class="project-meta">
+                Power BI · SQL Server · Modelado estrella · RLS · UX para dirección
+              </div>
+              <a class="btn" href="https://app.powerbi.com" target="_blank">
+                Ver demo
+              </a>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="project-slide">
+              <div class="project-title">Forecast de Demanda</div>
+              <div class="project-desc">
+                Predicción de demanda semanal para mejorar compras e inventarios,
+                reduciendo quiebres y sobrestock.
+              </div>
+              <div class="project-meta">
+                Python · Series de tiempo · Validación cruzada temporal · Visualizaciones
+              </div>
+              <a class="btn" href="https://github.com/tuusuario/proyecto-forecast" target="_blank">
+                Ver repositorio
+              </a>
+            </div>
           </div>
-          <p><a class="btn" href="https://github.com/tuusuario/proyecto-churn" target="_blank">Ver repo</a></p>
+
+          <div class="carousel-btn prev" id="prevBtn">&#10094;</div>
+          <div class="carousel-btn next" id="nextBtn">&#10095;</div>
         </div>
-        <div class="card">
-          <h3>BI Dashboard - Ventas</h3>
-          <p>Tablero ejecutivo con margen, mix de productos y comportamiento por región.</p>
-          <div class="tag-row">
-            <span class="tag">Power BI</span><span class="tag">SQL</span>
-          </div>
-          <p><a class="btn" href="https://app.powerbi.com" target="_blank">Ver demo</a></p>
-        </div>
-        <div class="card">
-          <h3>Forecast de Demanda</h3>
-          <p>Modelo de series de tiempo para planificación y compras.</p>
-          <div class="tag-row">
-            <span class="tag">Time Series</span><span class="tag">Python</span>
-          </div>
-          <p><a class="btn" href="https://github.com/tuusuario/proyecto-forecast" target="_blank">Ver repo</a></p>
+
+        <div class="carousel-dots" id="carouselDots">
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
         </div>
       </div>
     </section>
@@ -252,14 +634,16 @@
         <div class="experience-title">Business Intelligence Specialist</div>
         <div class="experience-meta">Empresa del sector inmobiliario & construcción · 2016 - Actual</div>
         <p>
-          Liderazgo en dashboards, modelos de información y automatización de reportes para dirección.
+          Diseño e implementación de modelos de información, automatización de reportes,
+          tableros ejecutivos y soporte a decisiones estratégicas.
         </p>
       </div>
       <div class="experience-item">
-        <div class="experience-title">Data Projects & Mentoring</div>
+        <div class="experience-title">Proyectos de Analítica & Mentoría</div>
         <div class="experience-meta">Freelance / Colaboraciones</div>
         <p>
-          Desarrollo de proyectos de analítica, soporte a equipos y capacitación en herramientas BI & Python.
+          Desarrollo de soluciones de datos, entrenamientos en BI y acompañamiento a equipos
+          para adoptar prácticas de analítica moderna.
         </p>
       </div>
     </section>
@@ -267,7 +651,7 @@
     <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>¿Tienes un proyecto, vacante o colaboración en mente?</p>
+      <p>¿Te interesa discutir una vacante, proyecto o colaboración?</p>
       <div class="contact-links">
         <a href="mailto:tu.email@dominio.com">tu.email@dominio.com</a>
         <a href="https://www.linkedin.com/in/tuusuario/" target="_blank">LinkedIn</a>
@@ -277,11 +661,43 @@
   </main>
 
   <footer>
-    © <span id="year"></span> Jaime Hernández · Hosted on GitHub Pages
+    © <span id="year"></span> Jaime Hernández · Portfolio hospedado en GitHub Pages
   </footer>
 
   <script>
+    // Año dinámico
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Carousel simple
+    const track = document.getElementById("projectsTrack");
+    const slides = Array.from(track.children);
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const dotsContainer = document.getElementById("carouselDots");
+    const dots = Array.from(dotsContainer.children);
+
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+      const offset = -index * 100;
+      track.style.transform = `translateX(${offset}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+    }
+
+    prevBtn.addEventListener("click", () => updateCarousel(currentIndex - 1));
+    nextBtn.addEventListener("click", () => updateCarousel(currentIndex + 1));
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        const idx = parseInt(dot.getAttribute("data-index"), 10);
+        updateCarousel(idx);
+      });
+    });
   </script>
 </body>
 </html>
+
