@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jaime Hernández - Data & BI Portfolio</title>
+  <style>
+    :root {
+      --bg: #080808;
+      --fg: #f5f5f5;
+      --accent: #00e6b8;
+      --muted: #9ca3af;
+      --card: #111827;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--fg); }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(8,8,8,0.9);
+      border-bottom: 1px solid rgba(75,85,99,0.5);
+    }
+    nav {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 18px;
+      font-size: 14px;
+    }
+    nav .brand { font-weight: 600; letter-spacing: 0.04em; color: var(--accent); }
+    nav a {
+      color: var(--fg); text-decoration: none; margin-left: 14px;
+      padding-bottom: 2px; border-bottom: 1px solid transparent;
+    }
+    nav a:hover { border-color: var(--accent); color: var(--accent); }
+    main { max-width: 1080px; margin: 0 auto; padding: 32px 18px 48px; }
+    section { padding: 40px 0; border-bottom: 1px solid rgba(31,41,55,0.8); }
+    h1,h2,h3 { margin: 0 0 12px; font-weight: 600; }
+    h2 { font-size: 22px; }
+    p { margin: 0 0 10px; color: var(--muted); }
+    .hero-title { font-size: 30px; margin-bottom: 8px; }
+    .hero-sub { font-size: 15px; max-width: 620px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; padding: 4px 10px;
+      border-radius: 999px; background: rgba(17,24,39,0.95); color: var(--accent);
+      border: 1px solid rgba(75,85,99,0.9); margin-bottom: 12px;
+    }
+    .btn-row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 8px 14px; border-radius: 999px;
+      font-size: 12px; text-decoration: none;
+      border: 1px solid var(--accent); color: var(--accent); background: transparent;
+    }
+    .btn.filled { background: var(--accent); color: #020817; border-color: var(--accent); }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,0.4); }
+    .grid {
+      display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 10px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 10px 11px;
+      border: 1px solid rgba(75,85,99,0.6);
+      font-size: 12px;
+    }
+    .card h3 { font-size: 13px; margin-bottom: 6px; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:4px; margin-top:4px; }
+    .tag {
+      font-size:9px; padding:2px 6px; border-radius:999px;
+      background: rgba(15,23,42,0.95); color: var(--accent);
+      border: 1px solid rgba(75,85,99,0.7);
+    }
+    ul { padding-left: 16px; margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+    li { margin-bottom: 3px; }
+    .experience-item { margin-bottom: 10px; font-size: 12px; }
+    .experience-title { font-weight: 600; color: var(--fg); }
+    .experience-meta { font-size: 10px; color: var(--muted); }
+    .contact-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+      margin-right: 12px;
+    }
+    .contact-links a:hover { text-decoration: underline; }
+    footer {
+      max-width: 1080px; margin: 0 auto;
+      padding: 18px; font-size: 10px; color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 6px; }
+      nav a { margin-left: 0; margin-right: 10px; }
+      .hero-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">JAIME HERNÁNDEZ</div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#techstack">Tech Stack</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home">
+      <div class="pill">Data · BI · Analytics · Machine Learning</div>
+      <h1 class="hero-title">Data Scientist & BI Specialist</h1>
+      <p class="hero-sub">
+        Transformo datos en decisiones accionables: dashboards claros, modelos predictivos aplicados al negocio
+        y soluciones de analítica que hablan el lenguaje de dirección, operación y finanzas.
+      </p>
+      <div class="btn-row">
+        <a class="btn filled" href="#projects">Ver proyectos</a>
+        <a class="btn" href="assets/CV_JaimeHernandez.pdf" target="_blank">Descargar CV</a>
+        <a class="btn" href="#contact">Contactarme</a>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section id="expertise">
+      <h2>Expertise</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Business Intelligence</h3>
+          <ul>
+            <li>Modelado de datos para reporting ejecutivo y operativo.</li>
+            <li>Dashboards en Power BI / Tableau centrados en negocio.</li>
+            <li>Gobierno del dato, catálogos y KPIs consistentes.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Data Science Aplicado</h3>
+          <ul>
+            <li>Churn, scoring, segmentación y forecast de demanda.</li>
+            <li>Evaluación de modelos con métricas orientadas a negocio.</li>
+            <li>Experimentación y pruebas A/B.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Arquitectura & ETL</h3>
+          <ul>
+            <li>SQL Server, Snowflake, pipelines robustos y documentados.</li>
+            <li>Integración de múltiples fuentes (APIs, Webhooks, archivos, ERPs).</li>
+            <li>Optimización de consultas e índices.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="techstack">
+      <h2>Tech Stack</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Lenguajes & Análisis</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Scikit-learn</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Business Intelligence</h3>
+          <div class="tag-row">
+            <span class="tag">Power BI</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Cognos</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Bases de Datos</h3>
+          <div class="tag-row">
+            <span class="tag">SQL Server</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Dev & Otros</h3>
+          <div class="tag-row">
+            <span class="tag">Git/GitHub</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Linux basics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Traducción de requerimientos de negocio a soluciones de datos.</li>
+        <li>Storytelling con datos para perfiles técnicos y no técnicos.</li>
+        <li>Calidad de datos: validaciones, pruebas y monitoreo continuo.</li>
+        <li>Documentación clara, reproducible y orientada a equipos.</li>
+        <li>Trabajo colaborativo con áreas comerciales, financieras y TI.</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Customer Churn Prediction</h3>
+          <p>Modelo para identificar clientes con alto riesgo de baja y priorizar retención.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">Scikit-learn</span>
+            <span class="tag">Classification</span>
+          </div>
+          <p><a class="btn" href="https://github.com/tuusuario/proyecto-churn" target="_blank">Ver repo</a></p>
+        </div>
+        <div class="card">
+          <h3>BI Dashboard - Ventas</h3>
+          <p>Tablero ejecutivo con margen, mix de productos y comportamiento por región.</p>
+          <div class="tag-row">
+            <span class="tag">Power BI</span><span class="tag">SQL</span>
+          </div>
+          <p><a class="btn" href="https://app.powerbi.com" target="_blank">Ver demo</a></p>
+        </div>
+        <div class="card">
+          <h3>Forecast de Demanda</h3>
+          <p>Modelo de series de tiempo para planificación y compras.</p>
+          <div class="tag-row">
+            <span class="tag">Time Series</span><span class="tag">Python</span>
+          </div>
+          <p><a class="btn" href="https://github.com/tuusuario/proyecto-forecast" target="_blank">Ver repo</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="experience-item">
+        <div class="experience-title">Business Intelligence Specialist</div>
+        <div class="experience-meta">Empresa del sector inmobiliario & construcción · 2016 - Actual</div>
+        <p>
+          Liderazgo en dashboards, modelos de información y automatización de reportes para dirección.
+        </p>
+      </div>
+      <div class="experience-item">
+        <div class="experience-title">Data Projects & Mentoring</div>
+        <div class="experience-meta">Freelance / Colaboraciones</div>
+        <p>
+          Desarrollo de proyectos de analítica, soporte a equipos y capacitación en herramientas BI & Python.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>¿Tienes un proyecto, vacante o colaboración en mente?</p>
+      <div class="contact-links">
+        <a href="mailto:tu.email@dominio.com">tu.email@dominio.com</a>
+        <a href="https://www.linkedin.com/in/tuusuario/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Jaime Hernández · Hosted on GitHub Pages
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
