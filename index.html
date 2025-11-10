@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jaime Hernández Gutiérerez - Data & BI Portfolio</title>
+  <title>Jaime Hernández Gutiérrez - Data & BI Portfolio</title>
   <style>
     :root {
       --bg: #f5f7fb;
@@ -25,7 +25,6 @@
       --med: 0.45s cubic-bezier(.33,.02,.11,.99);
     }
 
-    /* Dark mode */
     body.dark {
       --bg: #020817;
       --bg-alt: #050b16;
@@ -52,8 +51,6 @@
       color: var(--secondary);
       transition: background-color var(--med), color var(--med);
     }
-
-    /* HEADER */
 
     header {
       position: sticky;
@@ -118,22 +115,24 @@
       transform: translateY(-1px);
     }
 
-    .theme-toggle-btn {
-      padding: 6px 12px;
+    .theme-toggle-btn,
+    .lang-toggle-btn {
+      padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--bg-alt);
-      font-size: 11px;
+      font-size: 10px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       color: var(--muted);
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(15,23,42,0.08);
       transition: all var(--fast);
     }
     .theme-toggle-btn span.icon { font-size: 13px; }
-    .theme-toggle-btn:hover {
+    .theme-toggle-btn:hover,
+    .lang-toggle-btn:hover {
       color: var(--primary);
       border-color: var(--primary);
       box-shadow: var(--shadow-soft);
@@ -147,7 +146,7 @@
     }
 
     section {
-      padding: 40px 0 26px;
+      padding: 60px 0 40px; /* secciones más largas */
       border-bottom: 1px solid rgba(209,213,219,0.6);
       transition: border-color var(--med);
     }
@@ -170,11 +169,10 @@
       transition: color var(--med);
     }
 
-    /* HERO - RÉPLICA ESTILO BANDERAS */
-
     #home {
       border-bottom: none;
-      padding-bottom: 10px;
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
 
     .hero-layout {
@@ -184,9 +182,7 @@
       align-items: stretch;
     }
 
-    .hero-left {
-      padding-right: 10px;
-    }
+    .hero-left { padding-right: 10px; }
 
     .hero-title-line1 {
       font-size: 40px;
@@ -199,15 +195,9 @@
       font-weight: 800;
       line-height: 1.1;
     }
-    .hero-title-line2 span.gray {
-      color: #4b5563;
-    }
-    .hero-title-line2 span.gold {
-      color: var(--accent-gold);
-    }
-    body.dark .hero-title-line2 span.gray {
-      color: var(--secondary);
-    }
+    .hero-title-line2 span.gray { color: #4b5563; }
+    .hero-title-line2 span.gold { color: var(--accent-gold); }
+    body.dark .hero-title-line2 span.gray { color: var(--secondary); }
 
     .hero-subtitle {
       margin-top: 10px;
@@ -360,9 +350,7 @@
     }
     .hero-right a:hover { text-decoration: underline; }
 
-    section:not(#home) {
-      margin-top: 12px;
-    }
+    section:not(#home) { margin-top: 12px; }
 
     .grid {
       display: grid;
@@ -387,6 +375,14 @@
       transform: translateY(-2px);
       box-shadow: var(--shadow-soft);
       border-color: var(--primary-soft);
+    }
+
+    /* Hover especial tech stack */
+    #techstack .card:hover {
+      background: rgba(37, 99, 235, 0.04);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.16);
+      border-color: var(--primary);
+      transform: translateY(-4px);
     }
 
     ul {
@@ -435,10 +431,7 @@
       background: radial-gradient(circle at top, #020817, #020817);
     }
 
-    .carousel-viewport {
-      overflow: hidden;
-      width: 100%;
-    }
+    .carousel-viewport { overflow: hidden; width: 100%; }
 
     .carousel-track {
       display: flex;
@@ -512,9 +505,7 @@
       display: block;
       transition: transform var(--med);
     }
-    .project-slide.active .project-media img {
-      transform: scale(1.04);
-    }
+    .project-slide.active .project-media img { transform: scale(1.04); }
 
     .carousel-btn {
       position: absolute;
@@ -603,27 +594,6 @@
         padding: 14px 18px 18px;
       }
     }
-
-    /* EXTRA SPACING: alargar secciones un poco más */
-    section {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-    #home {
-      padding-top: 40px;
-      padding-bottom: 40px;
-    }
-
-    /* TECH STACK HOVER: sombrear tarjetas solo en esa sección */
-    #techstack .card {
-      transition: all var(--fast);
-    }
-    #techstack .card:hover {
-      background: rgba(37, 99, 235, 0.04);
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.16);
-      border-color: var(--primary);
-      transform: translateY(-4px);
-    }
   </style>
 </head>
 <body>
@@ -631,16 +601,21 @@
     <nav>
       <div class="brand">
         <div class="brand-main">JAIME HERNÁNDEZ GUTIÉRREZ</div>
-        <div class="brand-sub">Business Intelligence · Data Science Portfolio</div>
+        <div class="brand-sub" id="brandSub">Business Intelligence · Data Science Portfolio</div>
       </div>
       <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#techstack">Tech Stack</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" id="navHome">Home</a>
+        <a href="#expertise" id="navExpertise">Expertise</a>
+        <a href="#techstack" id="navTechStack">Tech Stack</a>
+        <a href="#skills" id="navSkills">Skills</a>
+        <a href="#projects" id="navProjects">Projects</a>
+        <a href="#experience" id="navExperience">Experience</a>
+        <a href="#contact" id="navContact">Contact</a>
+
+        <button class="lang-toggle-btn" id="langToggle" type="button">
+          <span id="langLabel">ES</span>
+        </button>
+
         <button class="theme-toggle-btn" id="themeToggle" type="button">
           <span class="icon" id="themeIcon">🌙</span>
           <span id="themeLabel">Modo oscuro</span>
@@ -654,30 +629,30 @@
     <section id="home">
       <div class="hero-layout">
         <div class="hero-left">
-          <div class="hero-title-line1">Data Scientist</div>
-          <div class="hero-title-line2">
+          <div class="hero-title-line1" id="heroTitle1">Data Scientist</div>
+          <div class="hero-title-line2" id="heroTitle2">
             <span class="gray">Who</span> <span class="gold">Speaks</span> <span class="gray">Business</span>
           </div>
-          <div class="hero-subtitle">
+          <div class="hero-subtitle" id="heroSubtitle">
             9+ Years Business & Analytics Experience + Advanced ML & BI Expertise
           </div>
-          <p class="hero-text">
+          <p class="hero-text" id="heroP1">
             Most data teams ship technically solid dashboards and models. I design solutions that actually
             get used: data models, ETLs, dashboards and ML aligned with how decision-makers think and measure success.
           </p>
-          <p class="hero-text">
+          <p class="hero-text" id="heroP2">
             My background working with executives, finance, sales and operations means I don't just solve
             technical problems — I target the right business problems with the right analytical approach.
           </p>
-          <div class="hero-diff">
+          <div class="hero-diff" id="heroDiff">
             <strong>My differentiator:</strong>
             I translate business pain into technical solutions because I understand both the constraints
             of operations and the language of data architecture and modeling.
           </div>
           <div class="btn-row">
-            <a class="btn filled" href="#projects">View Projects</a>
-            <a class="btn" href="assets/CV_JaimeHernandez.pdf" target="_blank">Download CV</a>
-            <a class="btn" href="#contact">Contact Me</a>
+            <a class="btn filled" href="#projects" id="btnViewProj">View Projects</a>
+            <a class="btn" href="assets/CV_JaimeHernandez.pdf" target="_blank" id="btnDownloadCV">Download CV</a>
+            <a class="btn" href="#contact" id="btnContactMe">Contact Me</a>
           </div>
         </div>
 
@@ -685,14 +660,14 @@
           <div class="photo-circle-wrap">
             <div class="photo-circle"></div>
           </div>
-          <div class="hero-right-role">Data Scientist · BI Specialist</div>
+          <div class="hero-right-role" id="heroRole">Data Scientist · BI Specialist</div>
           <div class="hero-right-list">
             <div class="hero-right-item">
-              <span class="label">Email:</span>
+              <span class="label" id="labelEmail">Email:</span>
               <a href="mailto:jaime.hdz.gt@gmail.com">jaime.hdz.gt@gmail.com</a>
             </div>
             <div class="hero-right-item">
-              <span class="label">Phone:</span> +52 811 781 3711
+              <span class="label" id="labelPhone">Phone:</span> +52 811 781 3711
             </div>
             <div class="hero-right-item">
               <span class="label">LinkedIn:</span>
@@ -703,10 +678,10 @@
               <a href="https://github.com/jaimehdzgt" target="_blank">github.com/jaimehdzgt</a>
             </div>
             <div class="hero-right-item">
-              <span class="label">Languages:</span> English B2 · Spanish Native
+              <span class="label" id="labelLangs">Languages:</span> English B2 · Spanish Native
             </div>
             <div class="hero-right-item">
-              <span class="label">Location:</span> Monterrey, México
+              <span class="label" id="labelLocation">Location:</span> Monterrey, México
             </div>
           </div>
         </div>
@@ -715,28 +690,28 @@
 
     <!-- EXPERTISE -->
     <section id="expertise">
-      <h2>Expertise</h2>
-      <p>End-to-end data solutions with measurable business impact.</p>
+      <h2 id="expertiseTitle">Expertise</h2>
+      <p id="expertiseText">End-to-end data solutions with measurable business impact.</p>
       <div class="grid">
         <div class="card">
-          <h3>Business Intelligence</h3>
-          <ul>
+          <h3 id="expBITitle">Business Intelligence</h3>
+          <ul id="expBIList">
             <li>Executive, tactical & operational reporting models.</li>
             <li>Power BI / Tableau dashboards with UX focus.</li>
             <li>Single source of truth & KPI governance.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Applied Data Science</h3>
-          <ul>
+          <h3 id="expDSTitle">Applied Data Science</h3>
+          <ul id="expDSList">
             <li>Churn, scoring, segmentation, pricing, forecasting.</li>
             <li>Business-driven metrics (ROI, uplift, profitability).</li>
             <li>A/B testing and experiment design.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Architecture & ETL</h3>
-          <ul>
+          <h3 id="expETLTitle">Architecture & ETL</h3>
+          <ul id="expETLList">
             <li>SQL Server, Snowflake, robust documented pipelines.</li>
             <li>ERP, APIs, Webhooks & flat file integrations.</li>
             <li>Performance tuning for heavy workloads.</li>
@@ -747,10 +722,10 @@
 
     <!-- TECH STACK -->
     <section id="techstack">
-      <h2>Tech Stack</h2>
+      <h2 id="techTitle">Tech Stack</h2>
       <div class="grid">
         <div class="card">
-          <h3>Languages & Analysis</h3>
+          <h3 id="techLangsTitle">Languages & Analysis</h3>
           <div class="tag-row">
             <span class="tag">Python</span>
             <span class="tag">Pandas</span>
@@ -763,7 +738,7 @@
           </div>
         </div>
         <div class="card">
-          <h3>Business Intelligence</h3>
+          <h3 id="techBITitle">Business Intelligence</h3>
           <div class="tag-row">
             <span class="tag">Power BI</span>
             <span class="tag">Tableau</span>
@@ -773,7 +748,7 @@
           </div>
         </div>
         <div class="card">
-          <h3>Databases & Cloud</h3>
+          <h3 id="techDBTitle">Databases & Cloud</h3>
           <div class="tag-row">
             <span class="tag">SQL Server</span>
             <span class="tag">Snowflake</span>
@@ -781,7 +756,7 @@
           </div>
         </div>
         <div class="card">
-          <h3>Dev & Automation</h3>
+          <h3 id="techDevTitle">Dev & Automation</h3>
           <div class="tag-row">
             <span class="tag">Git / GitHub</span>
             <span class="tag">APIs</span>
@@ -789,7 +764,7 @@
           </div>
         </div>
         <div class="card">
-          <h3>Libraries (ML & Visualization)</h3>
+          <h3 id="techLibTitle">Libraries (ML & Visualization)</h3>
           <div class="tag-row">
             <span class="tag">Pandas</span>
             <span class="tag">SciPy</span>
@@ -807,8 +782,8 @@
 
     <!-- SKILLS -->
     <section id="skills">
-      <h2>Skills</h2>
-      <ul>
+      <h2 id="skillsTitle">Skills</h2>
+      <ul id="skillsList">
         <li>Translating business questions into actionable data products.</li>
         <li>Communicating insights to technical and non-technical stakeholders.</li>
         <li>Defining KPIs, validating data quality and documenting pipelines.</li>
@@ -819,24 +794,24 @@
 
     <!-- PROJECTS -->
     <section id="projects">
-      <h2>Projects</h2>
-      <p>Each slide shows an image preview + key context. Active project is highlighted and centered.</p>
+      <h2 id="projectsTitle">Projects</h2>
+      <p id="projectsText">Each slide shows an image preview + key context. Active project is highlighted and centered.</p>
       <div class="projects-wrapper">
         <div class="carousel-shell">
           <div class="carousel-viewport">
             <div class="carousel-track" id="projectsTrack">
               <div class="project-slide active" data-index="0">
                 <div class="project-text">
-                  <div class="project-title">Customer Churn Prediction - Telco</div>
-                  <div class="project-desc">
+                  <div class="project-title" id="proj1Title">Customer Churn Prediction - Telco</div>
+                  <div class="project-desc" id="proj1Desc">
                     Predictive model to flag high-risk customers and prioritize retention campaigns
                     with clear financial impact.
                   </div>
-                  <div class="project-meta">
+                  <div class="project-meta" id="proj1Meta">
                     Python · Scikit-learn · Feature engineering · F1 / ROC-AUC · SHAP
                   </div>
                   <div class="project-actions">
-                    <a class="btn" href="https://github.com/tuusuario/proyecto-churn" target="_blank">View repo</a>
+                    <a class="btn" href="https://github.com/tuusuario/proyecto-churn" target="_blank" id="proj1Btn">View repo</a>
                   </div>
                 </div>
                 <div class="project-media">
@@ -846,16 +821,16 @@
 
               <div class="project-slide" data-index="1">
                 <div class="project-text">
-                  <div class="project-title">Executive Sales & Margin Dashboard</div>
-                  <div class="project-desc">
+                  <div class="project-title" id="proj2Title">Executive Sales & Margin Dashboard</div>
+                  <div class="project-desc" id="proj2Desc">
                     Single source of truth for revenue, margin and mix by region, channel and product,
                     designed for C-level decision-making.
                   </div>
-                  <div class="project-meta">
+                  <div class="project-meta" id="proj2Meta">
                     Power BI · SQL Server · Star schema · RLS · UX for executives
                   </div>
                   <div class="project-actions">
-                    <a class="btn" href="https://app.powerbi.com" target="_blank">View demo</a>
+                    <a class="btn" href="https://app.powerbi.com" target="_blank" id="proj2Btn">View demo</a>
                   </div>
                 </div>
                 <div class="project-media">
@@ -865,16 +840,16 @@
 
               <div class="project-slide" data-index="2">
                 <div class="project-text">
-                  <div class="project-title">Demand Forecast & Inventory Planning</div>
-                  <div class="project-desc">
+                  <div class="project-title" id="proj3Title">Demand Forecast & Inventory Planning</div>
+                  <div class="project-desc" id="proj3Desc">
                     Time series solution to anticipate weekly demand and optimize purchases,
                     reducing stockouts and overstock.
                   </div>
-                  <div class="project-meta">
+                  <div class="project-meta" id="proj3Meta">
                     Python · Time series · Backtesting · Automated reporting
                   </div>
                   <div class="project-actions">
-                    <a class="btn" href="https://github.com/tuusuario/proyecto-forecast" target="_blank">View repo</a>
+                    <a class="btn" href="https://github.com/tuusuario/proyecto-forecast" target="_blank" id="proj3Btn">View repo</a>
                   </div>
                 </div>
                 <div class="project-media">
@@ -898,19 +873,19 @@
 
     <!-- EXPERIENCE -->
     <section id="experience">
-      <h2>Experience</h2>
+      <h2 id="expTitle">Experience</h2>
       <div class="experience-item">
-        <div class="experience-title">Business Intelligence Specialist</div>
-        <div class="experience-meta">Real Estate & Construction · 2016 - Present</div>
-        <p>
+        <div class="experience-title" id="exp1Title">Business Intelligence Specialist</div>
+        <div class="experience-meta" id="exp1Meta">Real Estate & Construction · 2016 - Present</div>
+        <p id="exp1Desc">
           Design of data models, automation of reporting, executive dashboards
           and strategic decision support in complex environments.
         </p>
       </div>
       <div class="experience-item">
-        <div class="experience-title">Analytics Projects & Mentoring</div>
-        <div class="experience-meta">Freelance / Collaborations</div>
-        <p>
+        <div class="experience-title" id="exp2Title">Analytics Projects & Mentoring</div>
+        <div class="experience-meta" id="exp2Meta">Freelance / Collaborations</div>
+        <p id="exp2Desc">
           Delivery of analytics solutions, BI training and guidance for teams adopting modern data practices.
         </p>
       </div>
@@ -918,23 +893,25 @@
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Open to opportunities in Data, BI & Analytics. Let’s talk.</p>
+      <h2 id="contactTitle">Contact</h2>
+      <p id="contactText">Open to opportunities in Data, BI & Analytics. Let’s talk.</p>
       <div class="contact-links">
-        <a href="mailto:tu.email@dominio.com">tu.email@dominio.com</a>
-        <a href="https://www.linkedin.com/in/tuusuario/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+        <a href="mailto:tu.email@dominio.com" id="contactEmail">tu.email@dominio.com</a>
+        <a href="https://www.linkedin.com/in/tuusuario/" target="_blank" id="contactLinkedIn">LinkedIn</a>
+        <a href="https://github.com/tuusuario" target="_blank" id="contactGitHub">GitHub</a>
       </div>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Jaime Hernández Gutiérrez · Portfolio hosted on GitHub Pages
+    © <span id="year"></span> <span id="footerName">Jaime Hernández Gutiérrez</span> · <span id="footerText">Portfolio hosted on GitHub Pages</span>
   </footer>
 
   <script>
+    // Año dinámico
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // THEME TOGGLE
     const body = document.body;
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
@@ -964,6 +941,7 @@
       }
     });
 
+    // CAROUSEL
     const track = document.getElementById("projectsTrack");
     const slides = Array.from(track.querySelectorAll(".project-slide"));
     const prevBtn = document.getElementById("prevBtn");
@@ -972,61 +950,283 @@
     let currentIndex = 0;
     let autoTimer = null;
 
-    function goToStable(index) {
+    function goTo(index) {
       if (index < 0) index = slides.length - 1;
       if (index >= slides.length) index = 0;
       currentIndex = index;
       const translatePercent = -index * 100;
       track.style.transform = `translateX(${translatePercent}%)`;
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
+      slides.forEach((s, i) => s.classList.toggle("active", i === index));
+      dots.forEach((d, i) => d.classList.toggle("active", i === index));
     }
-
-    function go(index) {
-      goToStable(index);
-    }
-
-    prevBtn.addEventListener("click", () => {
-      go(currentIndex - 1);
-      resetAuto();
-    });
-    nextBtn.addEventListener("click", () => {
-      go(currentIndex + 1);
-      resetAuto();
-    });
-
-    slides.forEach((slide, i) => {
-      slide.addEventListener("click", () => {
-        go(i);
-        resetAuto();
-      });
-    });
-
-    dots.forEach(dot => {
-      dot.addEventListener("click", () => {
-        const i = parseInt(dot.dataset.index, 10);
-        go(i);
-        resetAuto();
-      });
-    });
 
     function startAuto() {
       autoTimer = setInterval(() => {
-        go(currentIndex + 1);
+        goTo(currentIndex + 1);
       }, 6000);
     }
+
     function resetAuto() {
       clearInterval(autoTimer);
       startAuto();
     }
 
-    go(0);
+    prevBtn.addEventListener("click", () => { goTo(currentIndex - 1); resetAuto(); });
+    nextBtn.addEventListener("click", () => { goTo(currentIndex + 1); resetAuto(); });
+    slides.forEach((slide, i) => slide.addEventListener("click", () => { goTo(i); resetAuto(); }));
+    dots.forEach(dot => dot.addEventListener("click", () => {
+      const i = parseInt(dot.dataset.index, 10);
+      goTo(i);
+      resetAuto();
+    }));
+
+    goTo(0);
     startAuto();
-    window.addEventListener("resize", () => go(currentIndex));
+    window.addEventListener("resize", () => goTo(currentIndex));
+
+    // LANGUAGE TOGGLE (ES / EN)
+    const langToggle = document.getElementById("langToggle");
+    const langLabel = document.getElementById("langLabel");
+
+    const i18nMap = {
+      brandSub: document.getElementById("brandSub"),
+      navHome: document.getElementById("navHome"),
+      navExpertise: document.getElementById("navExpertise"),
+      navTechStack: document.getElementById("navTechStack"),
+      navSkills: document.getElementById("navSkills"),
+      navProjects: document.getElementById("navProjects"),
+      navExperience: document.getElementById("navExperience"),
+      navContact: document.getElementById("navContact"),
+      heroTitle1: document.getElementById("heroTitle1"),
+      heroTitle2: document.getElementById("heroTitle2"),
+      heroSubtitle: document.getElementById("heroSubtitle"),
+      heroP1: document.getElementById("heroP1"),
+      heroP2: document.getElementById("heroP2"),
+      heroDiff: document.getElementById("heroDiff"),
+      btnViewProj: document.getElementById("btnViewProj"),
+      btnDownloadCV: document.getElementById("btnDownloadCV"),
+      btnContactMe: document.getElementById("btnContactMe"),
+      heroRole: document.getElementById("heroRole"),
+      labelEmail: document.getElementById("labelEmail"),
+      labelPhone: document.getElementById("labelPhone"),
+      labelLangs: document.getElementById("labelLangs"),
+      labelLocation: document.getElementById("labelLocation"),
+      expertiseTitle: document.getElementById("expertiseTitle"),
+      expertiseText: document.getElementById("expertiseText"),
+      expBITitle: document.getElementById("expBITitle"),
+      expBIList: document.getElementById("expBIList"),
+      expDSTitle: document.getElementById("expDSTitle"),
+      expDSList: document.getElementById("expDSList"),
+      expETLTitle: document.getElementById("expETLTitle"),
+      expETLList: document.getElementById("expETLList"),
+      techTitle: document.getElementById("techTitle"),
+      techLangsTitle: document.getElementById("techLangsTitle"),
+      techBITitle: document.getElementById("techBITitle"),
+      techDBTitle: document.getElementById("techDBTitle"),
+      techDevTitle: document.getElementById("techDevTitle"),
+      techLibTitle: document.getElementById("techLibTitle"),
+      skillsTitle: document.getElementById("skillsTitle"),
+      skillsList: document.getElementById("skillsList"),
+      projectsTitle: document.getElementById("projectsTitle"),
+      projectsText: document.getElementById("projectsText"),
+      proj1Title: document.getElementById("proj1Title"),
+      proj1Desc: document.getElementById("proj1Desc"),
+      proj1Meta: document.getElementById("proj1Meta"),
+      proj1Btn: document.getElementById("proj1Btn"),
+      proj2Title: document.getElementById("proj2Title"),
+      proj2Desc: document.getElementById("proj2Desc"),
+      proj2Meta: document.getElementById("proj2Meta"),
+      proj2Btn: document.getElementById("proj2Btn"),
+      proj3Title: document.getElementById("proj3Title"),
+      proj3Desc: document.getElementById("proj3Desc"),
+      proj3Meta: document.getElementById("proj3Meta"),
+      proj3Btn: document.getElementById("proj3Btn"),
+      expTitle: document.getElementById("expTitle"),
+      exp1Title: document.getElementById("exp1Title"),
+      exp1Meta: document.getElementById("exp1Meta"),
+      exp1Desc: document.getElementById("exp1Desc"),
+      exp2Title: document.getElementById("exp2Title"),
+      exp2Meta: document.getElementById("exp2Meta"),
+      exp2Desc: document.getElementById("exp2Desc"),
+      contactTitle: document.getElementById("contactTitle"),
+      contactText: document.getElementById("contactText"),
+      contactEmail: document.getElementById("contactEmail"),
+      contactLinkedIn: document.getElementById("contactLinkedIn"),
+      contactGitHub: document.getElementById("contactGitHub"),
+      footerText: document.getElementById("footerText")
+    };
+
+    const translations = {
+      es: {
+        brandSub: "Business Intelligence · Ciencia de Datos",
+        navHome: "Inicio",
+        navExpertise: "Experiencia",
+        navTechStack: "Tecnologías",
+        navSkills: "Habilidades",
+        navProjects: "Proyectos",
+        navExperience: "Trayectoria",
+        navContact: "Contacto",
+        heroTitle1: "Científico de Datos",
+        heroTitle2: "Que Habla el Lenguaje del Negocio",
+        heroSubtitle: "9+ años en negocio & analítica + experiencia avanzada en ML y BI",
+        heroP1: "Muchos equipos de datos construyen tableros y modelos sólidos técnicamente. Yo diseño soluciones que realmente se usan: modelos de datos, ETLs, dashboards y modelos alineados con cómo decide el negocio.",
+        heroP2: "Mi experiencia con dirección, finanzas, ventas y operación me permite atacar los problemas correctos con el enfoque analítico adecuado.",
+        heroDiff: "<strong>Mi diferenciador:</strong> traduzco el dolor del negocio en soluciones técnicas claras porque entiendo tanto la operación como la arquitectura de datos.",
+        btnViewProj: "Ver proyectos",
+        btnDownloadCV: "Descargar CV",
+        btnContactMe: "Contáctame",
+        heroRole: "Científico de Datos · Especialista BI",
+        labelEmail: "Correo:",
+        labelPhone: "Teléfono:",
+        labelLangs: "Idiomas:",
+        labelLocation: "Ubicación:",
+        expertiseTitle: "Experiencia",
+        expertiseText: "Soluciones de datos punta a punta con impacto medible.",
+        expBITitle: "Business Intelligence",
+        expBIList: "<li>Modelos de reporte ejecutivo, táctico y operativo.</li><li>Dashboards en Power BI / Tableau con enfoque UX.</li><li>Definición de KPIs y gobierno del dato.</li>",
+        expDSTitle: "Data Science Aplicado",
+        expDSList: "<li>Churn, scoring, segmentación, pricing, forecasting.</li><li>Métricas orientadas a ROI y rentabilidad.</li><li>Diseño de experimentos y pruebas A/B.</li>",
+        expETLTitle: "Arquitectura & ETL",
+        expETLList: "<li>Pipelines robustos y documentados en SQL / Snowflake.</li><li>Integración de ERPs, APIs y archivos.</li><li>Optimización de desempeño para grandes volúmenes.</li>",
+        techTitle: "Tech Stack",
+        techLangsTitle: "Lenguajes & Análisis",
+        techBITitle: "Herramientas de BI",
+        techDBTitle: "Bases de datos & Cloud",
+        techDevTitle: "Desarrollo & Automatización",
+        techLibTitle: "Librerías (ML & Visualización)",
+        skillsTitle: "Habilidades",
+        skillsList:
+          "<li>Conectar objetivos de negocio con soluciones de datos concretas.</li>" +
+          "<li>Comunicar insights a equipo técnico, gerencial y dirección.</li>" +
+          "<li>Definir KPIs, validar calidad de datos y documentar procesos.</li>" +
+          "<li>Capacitar equipos en BI, SQL y buenas prácticas.</li>" +
+          "<li>Colaborar con finanzas, ventas, operaciones y TI.</li>",
+        projectsTitle: "Proyectos",
+        projectsText: "Cada slide muestra una vista previa y el contexto clave. El proyecto activo se resalta.",
+        proj1Title: "Predicción de Churn - Telco",
+        proj1Desc: "Modelo que identifica clientes con alta probabilidad de baja para priorizar campañas de retención con impacto financiero.",
+        proj1Meta: "Python · Scikit-learn · Ingeniería de variables · F1 / ROC-AUC · SHAP",
+        proj1Btn: "Ver repositorio",
+        proj2Title: "Dashboard Ejecutivo de Ventas & Margen",
+        proj2Desc: "Fuente única de verdad para ingresos, margen y mix por región/canal/producto para comité directivo.",
+        proj2Meta: "Power BI · SQL Server · Esquema estrella · RLS · UX ejecutivo",
+        proj2Btn: "Ver demo",
+        proj3Title: "Forecast de Demanda & Planeación de Inventario",
+        proj3Desc: "Solución de series de tiempo para anticipar demanda semanal y optimizar compras.",
+        proj3Meta: "Python · Series de tiempo · Backtesting · Reportes automatizados",
+        proj3Btn: "Ver repositorio",
+        expTitle: "Trayectoria",
+        exp1Title: "Especialista en Business Intelligence",
+        exp1Meta: "Sector Inmobiliario & Construcción · 2016 - Actual",
+        exp1Desc: "Diseño de modelos de información, automatización de reportes y tableros ejecutivos para decisiones estratégicas.",
+        exp2Title: "Proyectos de Analítica & Mentoría",
+        exp2Meta: "Freelance / Colaboraciones",
+        exp2Desc: "Implementación de soluciones de datos y acompañamiento a equipos en adopción de BI.",
+        contactTitle: "Contacto",
+        contactText: "Abierto a oportunidades en Datos, BI & Analítica. Hablemos.",
+        contactEmail: "tu.email@dominio.com",
+        contactLinkedIn: "LinkedIn",
+        contactGitHub: "GitHub",
+        footerText: "Portafolio alojado en GitHub Pages"
+      },
+      en: {
+        brandSub: "Business Intelligence · Data Science Portfolio",
+        navHome: "Home",
+        navExpertise: "Expertise",
+        navTechStack: "Tech Stack",
+        navSkills: "Skills",
+        navProjects: "Projects",
+        navExperience: "Experience",
+        navContact: "Contact",
+        heroTitle1: "Data Scientist",
+        heroTitle2: "Who Speaks Business",
+        heroSubtitle: "9+ Years Business & Analytics Experience + Advanced ML & BI Expertise",
+        heroP1: "Most data teams ship technically solid dashboards and models. I design solutions that actually get used: data models, ETLs, dashboards and ML aligned with how decision-makers think and measure success.",
+        heroP2: "My background with executives, finance, sales and operations lets me target the right business problems with the right analytical approach.",
+        heroDiff: "<strong>My differentiator:</strong> I translate business pain into technical solutions because I understand both operations and data architecture.",
+        btnViewProj: "View Projects",
+        btnDownloadCV: "Download CV",
+        btnContactMe: "Contact Me",
+        heroRole: "Data Scientist · BI Specialist",
+        labelEmail: "Email:",
+        labelPhone: "Phone:",
+        labelLangs: "Languages:",
+        labelLocation: "Location:",
+        expertiseTitle: "Expertise",
+        expertiseText: "End-to-end data solutions with measurable business impact.",
+        expBITitle: "Business Intelligence",
+        expBIList: "<li>Executive, tactical & operational reporting models.</li><li>Power BI / Tableau dashboards with UX focus.</li><li>Single source of truth & KPI governance.</li>",
+        expDSTitle: "Applied Data Science",
+        expDSList: "<li>Churn, scoring, segmentation, pricing, forecasting.</li><li>Business-driven metrics (ROI, uplift, profitability).</li><li>A/B testing and experiment design.</li>",
+        expETLTitle: "Architecture & ETL",
+        expETLList: "<li>Robust documented pipelines with SQL / Snowflake.</li><li>ERP, APIs & flat file integrations.</li><li>Performance tuning for heavy workloads.</li>",
+        techTitle: "Tech Stack",
+        techLangsTitle: "Languages & Analysis",
+        techBITitle: "Business Intelligence Tools",
+        techDBTitle: "Databases & Cloud",
+        techDevTitle: "Development & Automation",
+        techLibTitle: "Libraries (ML & Visualization)",
+        skillsTitle: "Skills",
+        skillsList:
+          "<li>Translating business questions into actionable data products.</li>" +
+          "<li>Communicating insights to technical and non-technical audiences.</li>" +
+          "<li>Defining KPIs, validating data quality and documenting pipelines.</li>" +
+          "<li>Training teams on BI tools & data literacy.</li>" +
+          "<li>Collaborating with finance, sales, ops and IT.</li>",
+        projectsTitle: "Projects",
+        projectsText: "Each slide shows a visual preview and key context. The active project is highlighted.",
+        proj1Title: "Customer Churn Prediction - Telco",
+        proj1Desc: "Predictive model to flag high-risk customers and prioritize retention campaigns with clear financial impact.",
+        proj1Meta: "Python · Scikit-learn · Feature engineering · F1 / ROC-AUC · SHAP",
+        proj1Btn: "View repo",
+        proj2Title: "Executive Sales & Margin Dashboard",
+        proj2Desc: "Single source of truth for revenue, margin and mix by region/channel/product for C-level decisions.",
+        proj2Meta: "Power BI · SQL Server · Star schema · RLS · Executive UX",
+        proj2Btn: "View demo",
+        proj3Title: "Demand Forecast & Inventory Planning",
+        proj3Desc: "Time series solution to anticipate demand and optimize purchasing & inventory.",
+        proj3Meta: "Python · Time series · Backtesting · Automated reporting",
+        proj3Btn: "View repo",
+        expTitle: "Experience",
+        exp1Title: "Business Intelligence Specialist",
+        exp1Meta: "Real Estate & Construction · 2016 - Present",
+        exp1Desc: "Designing data models, automated reporting and executive dashboards in complex environments.",
+        exp2Title: "Analytics Projects & Mentoring",
+        exp2Meta: "Freelance / Collaborations",
+        exp2Desc: "Delivering analytics solutions and BI training for teams.",
+        contactTitle: "Contact",
+        contactText: "Open to opportunities in Data, BI & Analytics. Let’s talk.",
+        contactEmail: "tu.email@dominio.com",
+        contactLinkedIn: "LinkedIn",
+        contactGitHub: "GitHub",
+        footerText: "Portfolio hosted on GitHub Pages"
+      }
+    };
+
+    function applyLang(lang) {
+      const dict = translations[lang];
+      Object.keys(i18nMap).forEach(key => {
+        const el = i18nMap[key];
+        if (el && dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+      // El botón muestra a qué idioma cambiar
+      langLabel.textContent = lang === "es" ? "EN" : "ES";
+      localStorage.setItem("jaime-lang", lang);
+    }
+
+    (function initLang() {
+      const stored = localStorage.getItem("jaime-lang");
+      const lang = stored === "en" || stored === "es" ? stored : "es";
+      applyLang(lang);
+    })();
+
+    langToggle.addEventListener("click", () => {
+      const current = localStorage.getItem("jaime-lang") || "es";
+      const next = current === "es" ? "en" : "es";
+      applyLang(next);
+    });
   </script>
 </body>
 </html>
