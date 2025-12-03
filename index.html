@@ -498,14 +498,19 @@
       align-items: center;
       justify-content: center;
     }
-    .project-media img {
+    .project-media img,
+    .project-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       transition: transform var(--med);
+      border-radius: 14px;
     }
-    .project-slide.active .project-media img { transform: scale(1.04); }
+    .project-slide.active .project-media img,
+    .project-slide.active .project-media video {
+      transform: scale(1.04);
+    }
 
     .carousel-btn {
       position: absolute;
@@ -818,7 +823,10 @@
                   </div>
                 </div>
                 <div class="project-media">
-                  <img src="assets/Churn_Insight_Slides.gif" alt="Churn Insight Radar dashboard preview">
+                  <video autoplay muted loop playsinline>
+                    <source src="assets/Churn.mp4" type="video/mp4" />
+                    Tu navegador no soporta video HTML5.
+                  </video>
                 </div>
               </div>
 
@@ -968,7 +976,7 @@
     function startAuto() {
       autoTimer = setInterval(() => {
         goTo(currentIndex + 1);
-      }, 10000); // más lento: 10 segundos entre cambios
+      }, 10000); // 10 segundos entre cambios
     }
 
     function resetAuto() {
