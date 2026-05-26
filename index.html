@@ -415,109 +415,169 @@
     .experience-title { font-weight: 600; }
     .experience-meta { font-size: 10px; color: var(--muted); }
 
-    .projects-wrapper { margin-top: 16px; }
+    /* PROJECTS / CAROUSEL - versión amplia y responsiva */
+    .projects-wrapper {
+      margin-top: 22px;
+    }
 
     .carousel-shell {
       position: relative;
-      padding: 18px 32px 20px;
+      min-height: 410px;
+      padding: 32px 58px 36px;
       border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, var(--bg-alt), var(--bg-soft));
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.13), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.13), transparent 36%),
+        linear-gradient(135deg, var(--bg-alt), var(--bg-soft));
       border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
       overflow: hidden;
       transition: all var(--med);
     }
-    body.dark .carousel-shell {
-      background: radial-gradient(circle at top, #020817, #020817);
+
+    .carousel-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(37, 99, 235, 0.08), transparent 24%, transparent 76%, rgba(245, 158, 11, 0.08));
+      pointer-events: none;
     }
 
-    .carousel-viewport { overflow: hidden; width: 100%; }
+    body.dark .carousel-shell {
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(250, 204, 21, 0.12), transparent 36%),
+        linear-gradient(135deg, #020817, #050b16);
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
 
     .carousel-track {
       display: flex;
-      gap: 18px;
+      gap: 0;
       transition: transform var(--med);
       will-change: transform;
     }
 
     .project-slide {
-      flex: 0 0 80%;
-      max-width: 80%;
-      background: var(--bg-alt);
-      border-radius: var(--radius-lg);
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 14px rgba(15,23,42,0.10);
-      opacity: 0.4;
-      transform: scale(0.94) translateY(6px);
+      flex: 0 0 100%;
+      max-width: 100%;
+      min-height: 330px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.98), rgba(238,242,247,0.96));
+      border-radius: 26px;
+      padding: 28px;
+      border: 1px solid rgba(209, 213, 219, 0.95);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+      opacity: 0.35;
+      transform: scale(0.96);
       transition: all var(--med);
       cursor: pointer;
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(180px, 1fr);
-      gap: 10px;
-      align-items: center;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(380px, 1.1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    body.dark .project-slide {
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(2, 8, 23, 0.96));
+      border-color: rgba(31, 41, 55, 0.95);
     }
 
     .project-slide.active {
       opacity: 1;
-      transform: scale(1.02) translateY(0);
-      box-shadow: var(--shadow-soft);
+      transform: scale(1);
+      box-shadow: 0 24px 54px rgba(15, 23, 42, 0.22);
       border-color: var(--primary);
     }
 
+    .project-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 12px 4px;
+    }
+
     .project-text .project-title {
-      font-size: 15px;
-      font-weight: 600;
+      font-size: clamp(20px, 2.35vw, 30px);
+      line-height: 1.12;
+      font-weight: 800;
       color: var(--secondary);
-      margin-bottom: 4px;
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
     }
+
     .project-text .project-desc {
-      font-size: 13px;
+      font-size: clamp(14px, 1.35vw, 17px);
+      line-height: 1.65;
       color: var(--muted);
-      margin-bottom: 4px;
+      margin-bottom: 14px;
     }
+
     .project-text .project-meta {
-      font-size: 10px;
-      color: var(--muted);
-      margin-bottom: 6px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 20px;
     }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .project-actions .btn {
-      padding: 6px 14px;
-      min-width: auto;
-      font-size: 11px;
-      box-shadow: 0 4px 10px rgba(15,23,42,0.14);
+      padding: 10px 18px;
+      min-width: 128px;
+      font-size: 12px;
+      border-radius: 999px;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.14);
     }
 
     .project-media {
       width: 100%;
-      height: 150px;
-      border-radius: 14px;
+      height: clamp(270px, 32vw, 390px);
+      border-radius: 24px;
       overflow: hidden;
-      background: #e5e7eb;
+      background:
+        linear-gradient(135deg, #e5e7eb, #f8fafc);
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 16px 34px rgba(15,23,42,0.18);
     }
+
     .project-media img,
     .project-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
-      transition: transform var(--med);
-      border-radius: 14px;
+      transition: transform var(--med), filter var(--med);
+      border-radius: 24px;
     }
+
     .project-slide.active .project-media img,
     .project-slide.active .project-media video {
-      transform: scale(1.04);
+      transform: scale(1.035);
     }
 
     .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 30px;
-      height: 30px;
+      width: 46px;
+      height: 46px;
       border-radius: 999px;
       border: 1px solid var(--primary);
       background: var(--bg-alt);
@@ -526,35 +586,68 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 18px;
-      box-shadow: 0 8px 20px rgba(15,23,42,0.24);
+      font-size: 24px;
+      font-weight: 700;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.28);
       transition: all var(--fast);
+      z-index: 3;
     }
+
     .carousel-btn:hover {
       background: var(--primary);
       color: #ffffff;
-      transform: translateY(calc(-50% - 1px));
+      transform: translateY(calc(-50% - 2px));
     }
-    .carousel-btn.prev { left: 10px; }
-    .carousel-btn.next { right: 10px; }
+
+    .carousel-btn.prev {
+      left: 14px;
+    }
+
+    .carousel-btn.next {
+      right: 14px;
+    }
 
     .carousel-dots {
-      margin-top: 8px;
+      margin-top: 14px;
       display: flex;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
     }
+
     .dot {
-      width: 7px;
-      height: 7px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
       background: #cbd5e1;
       cursor: pointer;
       transition: all var(--fast);
     }
+
     .dot.active {
       background: var(--primary);
-      width: 16px;
+      width: 28px;
+    }
+
+    @media (min-width: 721px) and (max-width: 992px) {
+      .carousel-shell {
+        min-height: 500px;
+        padding: 28px 46px 32px;
+      }
+
+      .project-slide {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 24px;
+        gap: 22px;
+      }
+
+      .project-text {
+        padding: 0;
+      }
+
+      .project-media {
+        height: clamp(280px, 48vw, 390px);
+      }
     }
 
     .contact-links a {
@@ -593,10 +686,57 @@
         flex-basis: 100%;
         max-width: 100%;
         grid-template-columns: 1fr;
-        height: auto;
+        min-height: auto;
+        padding: 18px;
+        gap: 18px;
       }
+
+      .project-text {
+        padding: 0;
+      }
+
+      .project-text .project-title {
+        font-size: 22px;
+      }
+
+      .project-text .project-desc {
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .project-media {
+        height: clamp(230px, 64vw, 320px);
+        border-radius: 18px;
+      }
+
+      .project-media img,
+      .project-media video {
+        border-radius: 18px;
+      }
+
+      .project-actions .btn {
+        width: 100%;
+      }
+
       .carousel-shell {
-        padding: 14px 18px 18px;
+        min-height: auto;
+        padding: 20px 16px 24px;
+        border-radius: 22px;
+      }
+
+      .carousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+        top: 44%;
+      }
+
+      .carousel-btn.prev {
+        left: 8px;
+      }
+
+      .carousel-btn.next {
+        right: 8px;
       }
     }
   </style>
@@ -942,23 +1082,34 @@
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const dots = Array.from(document.getElementById("carouselDots").children);
+    const carouselShell = document.querySelector(".carousel-shell");
+
     let currentIndex = 0;
     let autoTimer = null;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     function goTo(index) {
       if (index < 0) index = slides.length - 1;
       if (index >= slides.length) index = 0;
+
       currentIndex = index;
-      const translatePercent = -index * 100;
-      track.style.transform = `translateX(${translatePercent}%)`;
-      slides.forEach((s, i) => s.classList.toggle("active", i === index));
-      dots.forEach((d, i) => d.classList.toggle("active", i === index));
+      track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
     }
 
     function startAuto() {
+      clearInterval(autoTimer);
       autoTimer = setInterval(() => {
         goTo(currentIndex + 1);
-      }, 10000); // 10 segundos entre cambios
+      }, 10000);
     }
 
     function resetAuto() {
@@ -966,18 +1117,70 @@
       startAuto();
     }
 
-    prevBtn.addEventListener("click", () => { goTo(currentIndex - 1); resetAuto(); });
-    nextBtn.addEventListener("click", () => { goTo(currentIndex + 1); resetAuto(); });
-    slides.forEach((slide, i) => slide.addEventListener("click", () => { goTo(i); resetAuto(); }));
-    dots.forEach(dot => dot.addEventListener("click", () => {
-      const i = parseInt(dot.dataset.index, 10);
-      goTo(i);
+    function handleSwipe() {
+      const distance = touchStartX - touchEndX;
+
+      if (Math.abs(distance) > 50) {
+        if (distance > 0) {
+          goTo(currentIndex + 1);
+        } else {
+          goTo(currentIndex - 1);
+        }
+      }
+    }
+
+    prevBtn.addEventListener("click", () => {
+      goTo(currentIndex - 1);
       resetAuto();
-    }));
+    });
+
+    nextBtn.addEventListener("click", () => {
+      goTo(currentIndex + 1);
+      resetAuto();
+    });
+
+    slides.forEach((slide, index) => {
+      slide.addEventListener("click", () => {
+        goTo(index);
+        resetAuto();
+      });
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        const index = parseInt(dot.dataset.index, 10);
+        goTo(index);
+        resetAuto();
+      });
+    });
+
+    if (carouselShell) {
+      carouselShell.addEventListener("mouseenter", () => {
+        clearInterval(autoTimer);
+      });
+
+      carouselShell.addEventListener("mouseleave", () => {
+        startAuto();
+      });
+
+      carouselShell.addEventListener("touchstart", event => {
+        touchStartX = event.changedTouches[0].screenX;
+        clearInterval(autoTimer);
+      }, { passive: true });
+
+      carouselShell.addEventListener("touchend", event => {
+        touchEndX = event.changedTouches[0].screenX;
+        handleSwipe();
+        resetAuto();
+      }, { passive: true });
+    }
 
     goTo(0);
     startAuto();
-    window.addEventListener("resize", () => goTo(currentIndex));
+
+    window.addEventListener("resize", () => {
+      goTo(currentIndex);
+    });
 
     // LANGUAGE TOGGLE (ES / EN)
     const langToggle = document.getElementById("langToggle");
